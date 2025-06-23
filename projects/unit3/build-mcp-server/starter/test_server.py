@@ -83,7 +83,6 @@ class TestGetPRTemplates:
         result = await get_pr_templates()
         
         assert isinstance(result, str), "Should return a string"
-        # Should be valid JSON
         data = json.loads(result)
         
         # For starter code, accept error messages; for full implementation, expect list
@@ -129,7 +128,6 @@ class TestSuggestTemplate:
         )
         
         assert isinstance(result, str), "Should return a string"
-        # Should be valid JSON
         data = json.loads(result)
         assert isinstance(data, dict), "Should return a JSON object"
     
@@ -160,7 +158,6 @@ class TestToolRegistration:
     def test_tools_have_decorators(self):
         """Test that tool functions are decorated with @mcp.tool()."""
         # In FastMCP, decorated functions should have certain attributes
-        # This is a basic check that functions exist and are callable
         assert hasattr(analyze_file_changes, '__name__'), \
             "analyze_file_changes should be a proper function"
         assert hasattr(get_pr_templates, '__name__'), \
